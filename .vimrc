@@ -48,7 +48,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
 Plugin 'fatih/vim-go'
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'Shougo/neocomplcache.vim'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
 Plugin 'xolox/vim-misc'
@@ -67,7 +67,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 """ airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'solarized'
 
 """ syntasic
 let g:syntastic_always_populate_loc_list = 1
@@ -108,24 +107,25 @@ set ignorecase
 " automatic wrap text > 80 im python f im python filesiles
 au BufRead,BufNewFile *py setlocal textwidth=80
 
-" Neocomplcache
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_enable_camel_case = 1
-let g:neocomplcache_max_list = 80
-let g:neocomplcache_force_overwrite_completefunc = 1
-
-if !exists('g:neocomplete#force_omni_input_patterns')
-            let g:neocomplete#force_omni_input_patterns = {}
-        endif
-let g:neocomplete#force_omni_input_patterns.go = '[^.[:digit:] *\t]\.'
-
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
 " switch colors by pressing F8
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 let g:colorscheme_switcher_exclude = ['ron', 'shine', 'slate', 'torte', 'zellner', 'blue', 'darkblue', 'delek', 'default', 'desert', 'elflord', 'evening', 'koehler', 'morning', 'murphy', 'peachpuff', 'pablo']
 
+
+" jedi-vim
+let g:jedi#use_tabs_not_buffers = 0
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#popup_on_dot = 1
+let g:jedi#popup_select_first = 0
+let g:jedi#goto_assignments_command = "<leader>g"  " \ + g
+let g:jedi#goto_definitions_command = "<leader>d"  " \ + d
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<leader>n" " \ + n
+let g:jedi#completions_command = "<C-Space>"
+let g:jedi#rename_command = "<leader>r" "\ + r
+let g:jedi#show_call_signatures = "1"
+let g:jedi#completions_enabled = 1
+
+autocmd FileType python setlocal completeopt-=preview
+let g:jedi#smart_auto_mappings = 1

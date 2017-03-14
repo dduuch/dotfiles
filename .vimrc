@@ -14,7 +14,7 @@ set shiftwidth=4
 let g:solarized_termcolors = 256
 set t_Co=256
 set background=dark
-colorscheme solarized
+colorscheme badwolf
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -47,12 +47,13 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
 Plugin 'fatih/vim-go'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'Shougo/neocomplcache.vim'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
+Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'tpope/vim-fugitive'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-colorscheme-switcher'
+Plugin 'tpope/vim-surround'
 call vundle#end()
 """"" end vundle
 filetype plugin indent on
@@ -90,6 +91,15 @@ let g:syntastic_python_pylint_args="--disable='fixme, line-too-long, logging-not
 autocmd FileType python setlocal completeopt-=preview
 
 
+"""YouCompleteMe
+"option shows help about module to completion
+let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_min_num_of_chars_for_completion = 0
+let g:ycm_auto_trigger = 1
+
+
 """ Indent Guides
 let g:indent_guides_enable_on_vim_startup = 1
 let g:ident_guides_start_level = 2
@@ -106,18 +116,6 @@ set copyindent
 set ignorecase
 " automatic wrap text > 80 im python f im python filesiles
 au BufRead,BufNewFile *py setlocal textwidth=80
-
-" Neocomplcache
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_enable_camel_case = 1
-let g:neocomplcache_max_list = 80
-let g:neocomplcache_force_overwrite_completefunc = 1
-
-if !exists('g:neocomplete#force_omni_input_patterns')
-            let g:neocomplete#force_omni_input_patterns = {}
-        endif
-let g:neocomplete#force_omni_input_patterns.go = '[^.[:digit:] *\t]\.'
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"

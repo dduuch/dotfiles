@@ -14,7 +14,7 @@ set shiftwidth=4
 let g:solarized_termcolors = 256
 set t_Co=256
 set background=dark
-colorscheme solarized
+colorscheme badwolf
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -45,7 +45,8 @@ match ExtraWhitespace /\s\+$/
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'fatih/vim-go'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'davidhalter/jedi-vim'
@@ -86,6 +87,16 @@ let g:syntastic_quiet_messages = { "type": "style" }
 let g:syntastic_python_pep9_args="--ignore=E501,W801"
 let g:syntastic_python_pylint_args="--disable='fixme, line-too-long, logging-not-lazy, bad-whitespace, invalid-name, missing-docstring'"
 
+" jedi-vim
+let g:jedi#use_tabs_not_buffers = 0
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#popup_on_dot = 1
+let g:jedi#popup_select_first = 0
+let g:jedi#completions_enabled = 1
+
+autocmd FileType python setlocal completeopt-=preview
+let g:jedi#smart_auto_mappings = 1
+
 "remove preview about module to completion
 autocmd FileType python setlocal completeopt-=preview
 
@@ -99,7 +110,6 @@ let g:indent_guides_color_change_percent = 80
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=gray ctermbg=0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=236
 
-" test
 " copy the previous indentation on autoindenting
 set copyindent
 " ignore case in search
@@ -111,21 +121,3 @@ au BufRead,BufNewFile *py setlocal textwidth=80
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 let g:colorscheme_switcher_exclude = ['ron', 'shine', 'slate', 'torte', 'zellner', 'blue', 'darkblue', 'delek', 'default', 'desert', 'elflord', 'evening', 'koehler', 'morning', 'murphy', 'peachpuff', 'pablo']
-
-
-" jedi-vim
-let g:jedi#use_tabs_not_buffers = 0
-let g:jedi#auto_vim_configuration = 0
-let g:jedi#popup_on_dot = 1
-let g:jedi#popup_select_first = 0
-let g:jedi#goto_assignments_command = "<leader>g"  " \ + g
-let g:jedi#goto_definitions_command = "<leader>d"  " \ + d
-let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = "<leader>n" " \ + n
-let g:jedi#completions_command = "<C-Space>"
-let g:jedi#rename_command = "<leader>r" "\ + r
-let g:jedi#show_call_signatures = "1"
-let g:jedi#completions_enabled = 1
-
-autocmd FileType python setlocal completeopt-=preview
-let g:jedi#smart_auto_mappings = 1

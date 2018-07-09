@@ -20,13 +20,14 @@ Good work and thank you!
 
 How to install:
 
-
     git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-    cd /tmp ; git clone https://github.com/dduuch/my-python-vim.git -b jedi-vim && cd my-python-vim ;  mv .vimrc ~/ ; mkdir -p ~/.vim/ ; mv colors ~/.vim/
+    cd /tmp ; git clone https://github.com/dduuch/dotfiles.git -b jedi-vim
+    mv dotfiles/vimrc/.vimrc~/;
+    mkdir -p ~/.vim/
+
 
 Add vim colors:
 
-    mkdir -p ~/.vim
     mkdir -p ~/.vim/colors
     wget https://raw.githubusercontent.com/altercation/vim-colors-solarized/master/colors/solarized.vim -O ~/.vim/colors/solarized.vim
     wget https://raw.githubusercontent.com/sjl/badwolf/master/colors/badwolf.vim -O ~/.vim/colors/badwolf.vim

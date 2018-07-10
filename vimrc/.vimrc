@@ -6,9 +6,12 @@
 """" to install plugins:  :source % | :PluginInstall
 """" to remove plugins:   :source % | :PluginClean
 syntax on
-set tabstop=8
-set expandtab
+set tabstop=4
 set softtabstop=4
+set shiftwidth=4
+set expandtab
+set smarttab
+set autoindent
 set t_Co=256
 set background=dark
 set shiftwidth=4
@@ -19,6 +22,14 @@ set hlsearch
 set nofoldenable
 set nocompatible
 set encoding=utf-8
+set wildmenu
+set cursorline
+" set cursorcolumn
+set showcmd
+set smartindent
+set smartcase
+set nowrap
+set ttyfast
 set rtp+=~/.vim/bundle/Vundle.vim
 
 " disable line numbers
@@ -39,7 +50,9 @@ au BufRead,BufNewFile *py setlocal textwidth=80
 let g:solarized_termcolors = 256
 colorscheme badwolf
 
-filetype off
+filetype on
+filetype plugin on
+filetype indent on
 
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
@@ -83,6 +96,7 @@ Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-colorscheme-switcher'
 Plugin 'sirver/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'rodjek/vim-puppet'
 call vundle#end()
 """"" end vundle
 

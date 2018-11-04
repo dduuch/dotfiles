@@ -1,20 +1,24 @@
-# my-python-vim
-My dotfiles configurtion.
+Basic configuration spacevim
 
 
-Configure Vim with Jedi-vim:
-
-    sudo apt-get install vim-python-jedi || sudo dnf install vim-jedi
-
-
-How to install:
-
-    git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-    cd /tmp ; git clone https://github.com/dduuch/dotfiles.git -b jedi-vim
-    mv dotfiles/vimrc/.vimrc ~/;
-    mkdir -p ~/.vim/
+Clone repository:
+```
+git clone https://github.com/dduuch/dotfiles.git -b spacevim /tmp/dotfiles
+```
 
 
-Install plugins:
+Install spacevim:
+```
+curl -sLf https://spacevim.org/install.sh | bash
+```
 
-    vim +BundleInstall +qall
+
+Copy configuration:
+```
+cp -a /tmp/dotfiles/.SpaceVim.d ~/.SpaceVim.d
+```
+
+
+Thats all!
+
+Thanks @spacevim team!

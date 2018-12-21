@@ -1,42 +1,31 @@
 # my-python-vim
-My vim configuration for programming in python
-
-Config file is using plugins:
-* https://github.com/VundleVim/Vundle.vim
-* https://github.com/sirver/ultisnips
-* https://github.com/scrooloose/nerdtree
-* https://github.com/bling/vim-airline
-* https://github.com/Valloric/YouCompleteMe
-* https://github.com/scrooloose/syntastic
-* https://github.com/nathanaelkane/vim-indent-guides
-* https://github.com/altercation/vim-colors-solarized
-* https://github.com/sjl/badwolf
-* Others!
+My dotfiles configurtion.
 
 
-Good work and thank you!
+Configure Vim with YouCompleteMe:
+
+    sudo apt-get install vim-python-jedi || sudo dnf install vim-jedi
 
 
-How to install:
+How to install for vim:
 
     git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     cd /tmp ; git clone https://github.com/dduuch/dotfiles.git -b ycm
-    mv dotfiles/vimrc/.vimrc~/;
+    mv dotfiles/vimrc/.vimrc ~/;
     mkdir -p ~/.vim/
 
 
-Add vim colors:
+How to install for neovim:
 
-    mkdir -p ~/.vim/colors
-    wget https://raw.githubusercontent.com/altercation/vim-colors-solarized/master/colors/solarized.vim -O ~/.vim/colors/solarized.vim
-    wget https://raw.githubusercontent.com/sjl/badwolf/master/colors/badwolf.vim -O ~/.vim/colors/badwolf.vim
-    wget https://raw.githubusercontent.com/sjl/badwolf/master/colors/goodwolf.vim -O ~/.vim/colors/goodwolf.vim
-    wget https://raw.githubusercontent.com/encody/nvim/master/colors/molokai.vim -O ~/.vim/colors/molokai.vim
-    wget https://raw.githubusercontent.com/encody/nvim/master/colors/mustang.vim -O ~/.vim/colors/mustang.vim
-    wget https://raw.githubusercontent.com/vim-scripts/The-Vim-Gardener/master/colors/gardener.vim  -O ~/.vim/colors/gardener.vim
-    wget https://raw.githubusercontent.com/nanotech/jellybeans.vim/master/colors/jellybeans.vim -O ~/.vim/colors/jellybeans.vim
-    wget https://raw.githubusercontent.com/Reewr/vim-monokai-phoenix/master/colors/monokai-phoenix.vim -O ~/.vim/colors/monokai-phoenix.vim
-    wget https://raw.githubusercontent.com/ayu-theme/ayu-vim/master/colors/ayu.vim -O ~/.vim/colors/ayu.vim
+    wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage -O /tmp/nvim.appimage
+    cd /tmp ; chmod u+x nvim.appimage
+    ./nvim.appimage --appimage-extract
+    mv /tmp/squashfs-root ~/.nvim
+    ln -s $HOME/.nvim/usr/bin/nvim /usr/bin/nvim
+    mkdir -p $HOME/.config/nvim
+
+    git clone https://github.com/dduuch/dotfiles.git -b ycm /tmp/dotfiles
+    mv /tmp/dotfiles/vimrc/.vimrc $HOME/.config/nvim/init.vim
 
 
 Install plugins:
@@ -44,7 +33,7 @@ Install plugins:
     vim +BundleInstall +qall
 
 
-Compile YCM:
+Last step: compile YCM:
 
     sudo apt-get -y install build-essential cmake  # or # sudo dnf install automake gcc gcc-c++ kernel-devel cmake python-devel python3-devel
 

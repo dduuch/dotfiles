@@ -1,0 +1,85 @@
+"""" plugged
+call plug#begin('~/.vim/plugged')
+" Helpers
+Plug 'nathanaelkane/vim-indent-guides'
+" Automatic closing of brackets
+Plug 'raimondi/delimitMate'
+" Vim tmux intergration
+Plug 'christoomey/vim-tmux-navigator'
+" statusline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+" Git integration
+Plug 'tpope/vim-fugitive'
+" shows git diff markers
+Plug 'airblade/vim-gitgutter'
+" syntax checks
+Plug 'scrooloose/syntastic'
+" Code Snippet
+Plug 'sirver/ultisnips'
+Plug 'honza/vim-snippets'
+" Change quotes to doublequotes
+Plug 'tpope/vim-surround'
+" fuzyy finder
+Plug 'junegunn/fzf'
+" file system explorer, similar to ranger/ranger
+Plug 'scrooloose/nerdtree'
+" Check syntax
+Plug 'dense-analysis/ale'
+" nerdy commenting powers
+Plug 'scrooloose/nerdcommenter'
+" languagepack collecion
+Plug 'sheerun/vim-polyglot'
+
+"" Polyglot plugins
+" GraphQL
+Plug 'jparise/vim-graphql'
+" HTML5
+Plug 'sheerun/html5.vim'
+" JSON
+Plug 'elzr/vim-json'
+" Javascript
+Plug 'pangloss/vim-javascript'
+" js
+Plug 'othree/javascript-libraries-syntax.vim'
+" Javascript -jsx extentions
+Plug 'mxw/vim-jsx'
+" Rescript
+Plug 'rescript-lang/vim-rescript'
+
+" Pretty code
+Plug 'prettier/vim-prettier', {
+      \ 'do': 'npm install' }
+" live edit html/css/js
+Plug 'turbio/bracey.vim'
+" eslint
+Plug 'eslint/eslint'
+
+" Reasonml
+Plug 'reasonml-editor/vim-reason-plus'
+" Ansible
+Plug 'pearofducks/ansible-vim'
+
+call plug#end()
+""""" end plugged
+
+" ale
+let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
+let g:ale_completion_enabled = 1
+let g:ale_pattern_options = {'\.min.js$': {'ale_enabled': 0}}
+
+" prettier
+map <F4> :Prettier<CR>
+"let g:prettier#autoformat = 1
+"let g:prettier#autoformat_require_pragma = 0
+"let g:prettier#exec_cmd_async = 1
+"let g:prettier#partial_format=1
+"let g:prettier#quickfix_enabled = 1
+"let g:prettier#config#print_width = '80'
+"au FileType css,scss let b:prettier_exec_cmd = "prettier-stylelint"
+
+"" Rescript
+"autocmd FileType rescript nnoremap <silent> <buffer> <localleader>r :RescriptFormat<CR>
+"autocmd FileType rescript nnoremap <silent> <buffer> <localleader>t :RescriptTypeHint<CR>
+"autocmd FileType rescript nnoremap <silent> <buffer> <localleader>b :RescriptBuild<CR>
+"autocmd FileType rescript nnoremap <silent> <buffer> gd :RescriptJumpToDefinition<CR>

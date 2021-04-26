@@ -1,0 +1,23 @@
+"""" plugged
+call plug#begin('~/.vim/plugged')
+" Dhall
+Plug 'vmchale/dhall-vim'
+Plug 'autozimu/LanguageClient-neovim', {
+     \ 'branch': 'next',
+     \ 'do': 'bash install.sh',
+     \ }
+call plug#end()
+""""" end plugged
+
+"" Dhall
+let g:LanguageClient_serverCommands = {
+    \ 'dhall': ['dhall-lsp-server'],
+    \ }
+let g:dhall_format=1
+set signcolumn=yes
+set hidden
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+" Highlight unicode symbols/chars
+highlight nonascii guibg=Red ctermbg=1 term=standout
+au BufReadPost * syntax match nonascii "[^\u0000-\u007F]"

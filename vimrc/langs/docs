@@ -1,0 +1,7 @@
+"""" plugged
+call plug#begin('~/.vim/plugged')
+" Markdown .md
+Plug 'plasticboy/vim-markdown'
+" RestructuredTextRuntime .rst
+Plug 'marshallward/vim-restructuredtext'
+""""" end plugged

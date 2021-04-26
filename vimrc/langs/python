@@ -1,0 +1,24 @@
+"""" plugged
+call plug#begin('~/.vim/plugged')
+
+"" Polyglot plugins
+" Python
+Plug 'vim-python/python-syntax'
+Plug 'Vimjas/vim-python-pep8-indent'
+
+""""" end plugged
+
+" disable line numbers
+" autocmd FileType python setlocal nonumber
+
+let g:syntastic_python_checkers = ['mypy']
+let g:syntastic_python_pylint_args="--disable='fixme, line-too-long, logging-not-lazy, bad-whitespace, invalid-name, missing-docstring'"
+
+"" Python-mode
+"" Stop checking with pymode, but use synstastic.
+"let g:pymode_lint = 0
+
+au BufRead,BufNewFile *py setlocal textwidth=80
+
+"" remove preview about module to completion
+" autocmd FileType python setlocal completeopt-=preview
